@@ -15,7 +15,7 @@ from classes.account.WebsiteAccount import WebsiteAccount
 from classes.types.OpsePhoneNumber import OpsePhoneNumber
 from classes.types.OpseStr import OpseStr
 
-from .ignorant.core import *
+from ignorant.core import *
 
 from utils.DataTypeInput import DataTypeInput
 from utils.DataTypeOutput import DataTypeOutput
@@ -32,9 +32,7 @@ class IgnorantTool(Tool):
     """
     deprecated = False
 
-    dynamic_dir = __name__.removesuffix('.' + os.path.basename(__file__).split('.')[0])
-
-    modules = import_submodules(dynamic_dir + ".ignorant.modules")
+    modules = import_submodules("ignorant.modules")
     websites = get_functions(modules)
 
     def __init__(self):
